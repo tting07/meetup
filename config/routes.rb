@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  get 'users/signup'
+  get "signup" => "users#signup"
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -25,6 +25,7 @@ Rails.application.routes.draw do
   # patch 'issues/:id' => 'issues#update'
 
   resources :issues
+  resources :users, only: [:create]
 
   post '/issues/:issue_id/comments' => "comments#create"
   
